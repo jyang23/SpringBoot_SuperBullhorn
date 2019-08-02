@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="layout::header">
+    <title>Post</title>
+</head>
+
+<body>
+<div th:replace="layout::nav"></div>
+
+<br/>
+<div class="text-center container">
+    <h2>Post Details</h2>
+    <table class="table">
+        <tr>
+            <td>Title:</td>
+            <td><span th:text="${post.title}"></span></td>
+        </tr>
+        <tr>
+            <td>Message:</td>
+            <td><span th:text="${post.postmessage}"></span></td>
+        </tr>
+        <tr>
+            <td>Posted Date:</td>
+            <td>
+                <span th:text="${post.posteddate}"></span></td>
+        </tr>
+        <tr>
+            <td>Posted By:</td>
+            <td>
+                <strong>
+                    <a th:href="@{/user/{id}(id=${post.user.id})}"
+                       th:text="${post.user.firstName} + ' ' + ${post.user.lastName}"></a>
+                </strong>
+            </td>
+        </tr>
+        <tr>
+            <td>Picture:</td>
+            <td><img class="profile-picture"
+                     th:alt="Picture"
+                     th:src="${post.postpicture}">
+            <td>
+        </tr>
+    </table>
+</div>
+<br/>
+
+<div th:replace="layout::footer"></div>
+</div>
+</body>
+</html>

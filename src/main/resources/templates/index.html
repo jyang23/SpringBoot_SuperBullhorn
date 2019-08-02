@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="layout::header">
+    <title>Blog Posts:</title>
+</head>
+
+<body>
+<div th:replace="layout::nav"></div>
+
+<div class = "main">
+    <div class="container">
+        <h2>Blog Posts:</h2><br/>
+        <div class = "row container">
+            <div class="card m-2" style="width: 17rem;" th:each="post : ${posts}">
+                <div class="card-header bg-dark text-white"><td th:text = "${post.id}"></td>: <td><a th:href="@{/post/{id}(id=${post.id})}">[[${post.title}]]</a></td></div>
+                <div class="card-body">
+                    <small><td><img th:src="${post.user.gravatar}"/></small></br>
+                    <small><td th:text="${post.posteddate}"></td></small></br>
+                    <small><td><a th:href="@{/user/{id}(id=${post.user.id})}">[[${post.user.username}]]</a></td></small></br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="layout::footer"></div>
+</body>
+</html>
