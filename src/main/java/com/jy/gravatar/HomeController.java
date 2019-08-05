@@ -60,7 +60,7 @@ public class HomeController {
             return "issueform";
         }
         String hash = md5Hex(user.getEmail());
-        hash = "https://www.gravatar.com/avatar/"+hash;
+        hash = "https://www.gravatar.com/avatar/"+hash+"?s=50";
         user.setGravatar(hash);
         userRepository.save(user);
         return "redirect:/";
@@ -106,4 +106,9 @@ public class HomeController {
         return null;
     }
     //------------------------------------------------------------------------------------------------------------------
+//    @RequestMapping("/user/{value}")
+//    public String newPost(@PathVariable("value") long id, Model model){
+//        model.addAttribute("user", userRepository.findById(id));
+//        return "user";
+//    }
 }

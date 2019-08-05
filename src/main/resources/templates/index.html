@@ -10,21 +10,31 @@
 <body>
 <div th:replace="layout::nav"></div>
 
-<div class = "main">
-    <div class="container">
-        <h2>Blog Posts:</h2><br/>
-        <div class = "row container">
-            <div class="card m-2" style="width: 17rem;" th:each="post : ${posts}">
-                <div class="card-header bg-dark text-white"><td th:text = "${post.id}"></td>: <td><a th:href="@{/post/{id}(id=${post.id})}">[[${post.title}]]</a></td></div>
-                <div class="card-body">
-                    <small><td><img th:src="${post.user.gravatar}"/></small></br>
-                    <small><td th:text="${post.posteddate}"></td></small></br>
-                    <small><td><a th:href="@{/user/{id}(id=${post.user.id})}">[[${post.user.username}]]</a></td></small></br>
-                </div>
-            </div>
-        </div>
-    </div>
+<div align="center" class="container col-md-6 col-md-offset-3">
+    <h2>Post Feed</h2>
+    <br>
+    <br>
+    
+    <table class="table" style="width:100%">
+        <tr>
+            <th sec:authorize="hasAuthority('ADMIN')">Select</th>
+            <th>Title</th>
+            <th>Profile Picture</th>
+            <th>Date</th>
+            <th>Username</th>
+        </tr>
+
+        <tr th:each="post : ${posts}">
+            <td><a th:href="@{/post/{id}(id=${post.id})}">[[${post.title}]]</a></td>
+            <td><img th:src="${post.user.gravatar}"></td>
+            <td th:text="${post.posteddate}"></td>
+            <td><a th:href="@{/user/{id}(id=${post.user.username})}">[[${post.user.username}]]</a></td>
+        </tr>
+    </table>
 </div>
+
+
+
 <div th:replace="layout::footer"></div>
 </body>
 </html>

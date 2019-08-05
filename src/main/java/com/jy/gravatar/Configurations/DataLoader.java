@@ -40,7 +40,7 @@ public class DataLoader implements CommandLineRunner {
 
         //Constructors
         //==============================================================================================================
-        User user = new User("user@name.com", "password", "User", "Name", true, "user","https://s.gravatar.com/avatar/");
+        User user = new User("user@name.com", "password", "User", "Name", true, "user","https://s.gravatar.com/avatar/?s=50");
         user.setRoles(Arrays.asList(userRole));
         userRepository.save(user);
 
@@ -55,7 +55,7 @@ public class DataLoader implements CommandLineRunner {
         user.setPostid(post.getId());
         userRepository.save(user);
         //==============================================================================================================
-        user = new User("system@admin.com", "password", "System", "Admin", true, "admin","https://s.gravatar.com/avatar/");
+        user = new User("system@admin.com", "password", "System", "Admin", true, "admin","https://s.gravatar.com/avatar/?s=50");
         user.setRoles(Arrays.asList(adminRole));
         userRepository.save(user);
 
@@ -70,7 +70,7 @@ public class DataLoader implements CommandLineRunner {
         user.setPostid(post.getId());
         userRepository.save(user);
         //==============================================================================================================
-        user = new User("ymu@z.zgrco.com", "password", "Justin", "Jang", true, "justin","https://s.gravatar.com/avatar/5623241a8751fef7598d621664854feb?s=80");
+        user = new User("ymu@z.zgrco.com", "password", "Justin", "Jang", true, "justin","https://s.gravatar.com/avatar/5623241a8751fef7598d621664854feb?s=50");
         user.setRoles(Arrays.asList(userRole));
         userRepository.save(user);
 
@@ -86,7 +86,7 @@ public class DataLoader implements CommandLineRunner {
         userRepository.save(user);
 
         //==============================================================================================================
-        user = new User("lpr@s.rv55.com", "password", "Aaron", "Yan", true, "aaron","https://s.gravatar.com/avatar/b1b191f1dad35861c0a90f4e188db81d?s=80");
+        user = new User("lpr@s.rv55.com", "password", "Aaron", "Yan", true, "aaron","https://s.gravatar.com/avatar/b1b191f1dad35861c0a90f4e188db81d?s=50");
         user.setRoles(Arrays.asList(userRole));
         userRepository.save(user);
 

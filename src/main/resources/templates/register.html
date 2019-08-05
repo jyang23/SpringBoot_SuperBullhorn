@@ -11,7 +11,14 @@
 <div th:replace="layout::nav"></div>
 
 <div align="center" class="container col-md-6 col-md-offset-3">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <h2>Registration Page</h2>
+    <br>
+
     <form action="#" autocomplete="off" method="post" th:action="@{/register}" th:object="${user}">
 
         <p class="error-message"
@@ -91,7 +98,7 @@
             </div>
         </div>
 
-        <button class="btn btn-primary" type="submit">Register</button>
+        <button class="btn btn-default" type="submit">Register</button>
 
     </form>
 
@@ -100,9 +107,7 @@
             Already registered? <a href="/" th:href="@{/login}">Login</a>
         </div>
     </div>
-
 </div>
-
 <div th:replace="layout::footer"></div>
 </body>
 </html>
